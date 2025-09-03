@@ -3,6 +3,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/styles.css");
   eleventyConfig.addPassthroughCopy("src/images");
 
+  // 🔹 Copy the admin folder to output
+  eleventyConfig.addPassthroughCopy("admin");
+
   // 🔹 Collection: All news posts
   eleventyConfig.addCollection("news", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/news/*.md");
