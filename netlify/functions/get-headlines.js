@@ -30,6 +30,11 @@ exports.handler = async function () {
 
         const items = (json.rss?.channel?.[0]?.item || []).slice(0, 10);
 
+        // 🔎 Debug: log Punch feed structure
+        if (outletName === "punch" && items.length > 0) {
+          console.log("DEBUG Punch Feed Item:", JSON.stringify(items[0], null, 2));
+        }
+
         return [
           outletName,
           items.map((item) => ({
