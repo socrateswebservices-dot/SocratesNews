@@ -117,3 +117,14 @@ body {
   color: #fff !important;
   opacity: 1 !important;
 }
+
+.news-articles .card {
+  max-height: 420px;    /* visible portion */
+  overflow: hidden;     /* hide outside */
+  position: relative;
+}
+
+.news-articles .card > * {
+  position: relative;
+  top: -50px;   /* shift content upward (cut from top) */
+}
