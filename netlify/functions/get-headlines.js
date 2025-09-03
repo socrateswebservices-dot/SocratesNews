@@ -11,7 +11,7 @@ const parser = new xml2js.Parser({
 
 exports.handler = async function () {
   const newsOutlets = {
-    "daily-sun": "https://thesun.ng/feed/",
+    "daily-sun": "https://thesun.ng/feed",
     "business-day": "https://businessday.ng/feed/",
     "tribune": "https://tribuneonlineng.com/feed/",
     "daily-trust": "https://dailytrust.com.ng/feed/",
