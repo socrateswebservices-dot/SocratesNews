@@ -18,7 +18,7 @@ title: Socrates News
           {% endif %}
           <h5 class="card-title">{{ item.data.title }}</h5>
           <p class="card-text flex-grow-1">{{ item.templateContent | truncate: 20 }}</p>
-          <a href="{{ item.url }}" class="btn btn-primary mt-auto" style="background-color: darkcyan";>Read More</a>
+          <a href="{{ item.url }}" class="btn btn-primary mt-auto" style="background-color: darkcyan;">Read More</a>
         </div>
       </div>
     </div>
@@ -47,53 +47,72 @@ title: Socrates News
     <h5 id="headline-title" class="mb-0">Punch News</h5>
   </div>
   <div class="card-body">
+    <!-- Spinner -->
+    <div id="loading-spinner" class="text-center my-3" style="display: none;">
+      <div class="spinner-border text-secondary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+
+    <!-- Headlines list -->
     <ul class="list-group list-group-flush" id="headlines-list"></ul>
   </div>
 </div>
 
 <script>
-  // Load all headlines from Netlify Function
   let allHeadlines = {};
 
   async function fetchHeadlines() {
+    const container = document.getElementById("headlines-list");
+    const spinner = document.getElementById("loading-spinner");
+
+    spinner.style.display = "block";  // show spinner
+    container.innerHTML = "";
+
     try {
       const res = await fetch("/.netlify/functions/get-headlines");
       allHeadlines = await res.json();
-      // Show Punch headlines by default
+
+      spinner.style.display = "none"; // hide spinner
       showHeadlines("punch");
     } catch (err) {
       console.error("Error loading headlines:", err);
-      document.getElementById("headlines-list").innerHTML =
-        "<li class='list-group-item text-danger'>Failed to load headlines.</li>";
+      spinner.style.display = "none";
+      container.innerHTML =
+        "<li class='list-group-item text-danger'>❌ Failed to load headlines.</li>";
     }
   }
 
   function showHeadlines(outlet, btn) {
     const container = document.getElementById("headlines-list");
+    const spinner = document.getElementById("loading-spinner");
     const title = document.getElementById("headline-title");
 
-    // Clear old content
+    // Show spinner while switching outlets
+    spinner.style.display = "block";
     container.innerHTML = "";
 
     // Update active button style
     document.querySelectorAll(".btn-news").forEach(b => b.classList.remove("active"));
     if (btn) btn.classList.add("active");
 
-    // Check if headlines exist
-    if (!allHeadlines[outlet] || allHeadlines[outlet].length === 0) {
-      container.innerHTML = "<li class='list-group-item text-muted'>No headlines available</li>";
-      title.textContent = outlet.replace("-", " ").toUpperCase();
-      return;
-    }
+    setTimeout(() => {
+      spinner.style.display = "none"; // hide spinner after "loading"
+      
+      if (!allHeadlines[outlet] || allHeadlines[outlet].length === 0) {
+        container.innerHTML = "<li class='list-group-item text-muted'>No headlines available</li>";
+        title.textContent = outlet.replace("-", " ").toUpperCase();
+        return;
+      }
 
-    // Update title and populate list
-    title.textContent = outlet.replace("-", " ").replace(/\b\w/g, c => c.toUpperCase());
-    allHeadlines[outlet].forEach(item => {
-      const li = document.createElement("li");
-      li.className = "list-group-item";
-      li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
-      container.appendChild(li);
-    });
+      title.textContent = outlet.replace("-", " ").replace(/\b\w/g, c => c.toUpperCase());
+      allHeadlines[outlet].forEach(item => {
+        const li = document.createElement("li");
+        li.className = "list-group-item";
+        li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
+        container.appendChild(li);
+      });
+    }, 400); // small delay for smoother spinner effect
   }
 
   // Fetch on load
