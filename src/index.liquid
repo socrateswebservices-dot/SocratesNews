@@ -1,0 +1,129 @@
+---
+layout: base.liquid
+title: Socrates News
+---
+<h1 class="mt-4 mb-3" style="font-weight:bold; font-size:22px;">Latest News</h1>
+
+
+<div class="row news-articles">
+  {% for item in collections.news reversed %}
+    <div class="col-6 col-md-6 col-lg-4 d-flex">
+      <div class="card h-100 w-100 d-flex flex-column">
+        {% if item.data.image %}
+          <img src="{{ item.data.image }}" class="card-img-top" alt="{{ item.data.title }}">
+        {% endif %}
+        <div class="card-body d-flex flex-column">
+          {% if item.data.category %}
+          <span class="badge badge-info">{{ item.data.category }}</span>
+          {% endif %}
+          <h5 class="card-title">{{ item.data.title }}</h5>
+          <p class="card-text flex-grow-1">{{ item.templateContent | truncate: 20 }}</p>
+          <a href="{{ item.url }}" class="btn btn-primary mt-auto">Read More</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<hr class="mt-4 mb-3">
+<h2 class="mt-4 mb-3" style="font-weight:bold; font-size:22px;">Headlines</h2>
+<hr>
+<div id="headlines-container">
+  <div class="row">
+
+  <div class="col-12 col-md-6 col-lg-4 mb-4">
+      <div class="card h-100">
+        <div class="card-header bg-dark text-white">
+          <h5 class="mb-0">Punch News
+        </div>
+        <div class="card-body">
+          <ul class="list-group list-group-flush" id="punch-headlines"></ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-12 col-md-6 col-lg-4 mb-4">
+      <div class="card h-100">
+        <div class="card-header bg-dark text-white">
+          <h5 class="mb-0">Daily Sun</h5>
+        </div>
+        <div class="card-body">
+          <ul class="list-group list-group-flush" id="daily-sun-headlines"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4 mb-4">
+      <div class="card h-100">
+        <div class="card-header bg-dark text-white">
+          <h5 class="mb-0">Business Day</h5>
+        </div>
+        <div class="card-body">
+          <ul class="list-group list-group-flush" id="business-day-headlines"></ul>
+        </div>
+      </div>
+    </div> 
+
+    <div class="col-12 col-md-6 col-lg-4 mb-4">
+      <div class="card h-100">
+        <div class="card-header bg-dark text-white">
+          <h5 class="mb-0">Tribune</h5>
+        </div>
+        <div class="card-body">
+          <ul class="list-group list-group-flush" id="tribune-headlines"></ul>
+        </div>
+      </div>
+    </div> 
+
+    <div class="col-12 col-md-6 col-lg-4 mb-4">
+      <div class="card h-100">
+        <div class="card-header bg-dark text-white">
+          <h5 class="mb-0">Daily Trust</h5>
+        </div>
+        <div class="card-body">
+          <ul class="list-group list-group-flush" id="daily-trust-headlines"></ul>
+        </div>
+      </div>
+    </div> 
+
+    <div class="col-12 col-md-6 col-lg-4 mb-4">
+      <div class="card h-100">
+        <div class="card-header bg-dark text-white">
+          <h5 class="mb-0">Daily Times</h5>
+        </div>
+        <div class="card-body">
+          <ul class="list-group list-group-flush" id="daily-times-headlines"></ul>
+        </div>
+      </div>
+    </div>       
+  </div>
+</div>
+
+<script>
+  async function fetchHeadlines() {
+    try {
+      const response = await fetch('/.netlify/functions/get-headlines');
+      const data = await response.json();
+
+      // Iterate over each news outlet in the returned data
+        for (const outlet in data) {
+          if (data.hasOwnProperty(outlet)) {
+            const headlinesList = document.getElementById(`${outlet}-headlines`);
+          if (headlinesList) {
+              data[outlet].forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'list-group-item';
+                li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
+                headlinesList.appendChild(li);
+              });
+            }
+          }
+        }
+
+      } catch (error) {
+        console.error('Failed to fetch headlines:', error);
+      }
+  }
+
+  document.addEventListener('DOMContentLoaded', fetchHeadlines);
+</script>

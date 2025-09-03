@@ -1,0 +1,19 @@
+---
+layout: base.liquid
+---
+
+<article class="mt-4 mb-5">
+  <h1 class="mb-2">{{ title }}</h1>
+  <p class="text-muted">
+    {{ date | date: "%B %d, %Y" }}
+    {% if category %} | <span class="badge badge-info">{{ category }}</span>{% endif %}
+  </p>
+
+  {% if image %}
+    <img src="{{ image }}" alt="{{ title }}" class="img-fluid rounded mb-4">
+  {% endif %}
+
+  <div class="content">
+    {{ content }}
+  </div>
+</article>
