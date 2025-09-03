@@ -119,12 +119,36 @@ body {
 }
 
 .news-articles .card {
-  max-height: 420px;    /* visible portion */
-  overflow: hidden;     /* hide outside */
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* make all cards full height */
 }
 
-.news-articles .card > * {
+.news-articles .card-img-top {
+  height: 200px;          /* fixed height for all images */
+  object-fit: cover;      /* crop image */
+  object-position: bottom;   /* cut from the top */
+}
+
+.news-articles .card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   position: relative;
-  top: -50px;   /* shift content upward (cut from top) */
+  padding-bottom: 60px; /* leave space so button won’t overlap text */
+}
+
+.news-articles .card-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;   /* max 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.news-articles .card a.btn {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
 }
