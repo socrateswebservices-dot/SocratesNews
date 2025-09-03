@@ -6,3 +6,7 @@ category: Latest
 layout: base.liquid
 ---
 U﻿nilorin aspirants can now check their portal for their post-utme result.
+
+Candidates who wrote the exam on Sept 2, 2025 can now check their results at:  
+
+[https://portal.unilorin.edu.ng](https://portal.unilorin.edu.ng/)
