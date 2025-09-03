@@ -1,7 +1,7 @@
 const axios = require("axios");
 const xml2js = require("xml2js");
 const he = require("he");
-const cheerio = require("cheerio"); // 👈 added
+const cheerio = require("cheerio");
 
 const parser = new xml2js.Parser({
   explicitArray: true,
@@ -22,6 +22,7 @@ exports.handler = async function () {
   };
 
   try {
+    // Fetch normal feeds
     const feedPromises = Object.entries(newsOutlets).map(async ([outletName, feedUrl]) => {
       try {
         const response = await axios.get(feedUrl, { timeout: 8000 });
@@ -49,9 +50,10 @@ exports.handler = async function () {
         const response = await axios.get("https://punchng.com/", { timeout: 8000 });
         const $ = cheerio.load(response.data);
 
-        // Select article links — Punch uses h2.article-title > a
         const articles = [];
-        $("h2.entry-title a").each((i, el) => {
+
+        // Try multiple selectors
+        $("h2.entry-title a, h3.post-title a, .post-title a").each((i, el) => {
           if (i < 10) {
             articles.push({
               title: $(el).text().trim(),
@@ -59,6 +61,21 @@ exports.handler = async function () {
             });
           }
         });
+
+        // If still empty, fallback to aggregator
+        if (articles.length === 0) {
+          console.warn("⚠️ Punch selectors empty, falling back to aggregator feed");
+          const fallback = await axios.get("https://www.latestnigeriannews.com/feed/punch/rss.xml", { timeout: 8000 });
+          const json = await parser.parseStringPromise(fallback.data);
+          const items = (json.rss?.channel?.[0]?.item || []).slice(0);
+          return [
+            "punch",
+            items.map((item) => ({
+              title: he.decode(item.title?.[0] || "No title"),
+              link: item.link?.[0] || "#",
+            })),
+          ];
+        }
 
         return ["punch", articles];
       } catch (err) {
