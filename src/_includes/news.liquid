@@ -10,7 +10,9 @@ layout: base.liquid
   </p>
 
   {% if image %}
-    <img src="{{ image }}" alt="{{ title }}" class="img-fluid rounded mb-4">
+    <div class="text-center">
+      <img src="{{ image }}" alt="{{ title }}" class="img-fluid rounded mb-4" style="max-width: 600px; height: auto;">
+    </div>
   {% endif %}
 
   <div class="content">

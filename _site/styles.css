@@ -1,0 +1,124 @@
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #f9f9f9;
+    color: #222;
+    line-height: 1.6;
+}
+
+.header {
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    border-bottom: 2px solid #ccc;
+}
+
+.header img {
+    max-width: 100%;
+    height: auto;
+}
+
+.nav {
+    background: #eee;
+    padding: 10px;
+    text-align: center;
+}
+
+.nav a {
+    margin: 0 15px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    color: #007bff;
+}
+
+.top-story img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.top-story h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.top-story p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.news-articles .col-6 {
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.news-articles .col-6:hover {
+    transform: translateY(-5px);
+}
+
+.news-articles img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.news-articles .card-body {
+    padding: 15px;
+}
+
+.news-articles .card-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.news-articles .badge {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+/* 🔹 News outlet buttons */
+.btn-news {
+    background: #343a40;
+    color: #fff;
+    border-radius: 20px;
+    padding: 8px 18px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-news:hover,
+.btn-news.active {
+    background: #007bff;
+    color: #fff;
+}
+
+/* 🔹 Headlines card */
+#headlines-container {
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+#headlines-container .card-header {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* 🔹 Loading state */
+#headlines-list.loading::before {
+    content: "⏳ Loading headlines...";
+    display: block;
+    text-align: center;
+    padding: 15px;
+    color: #555;
+    font-style: italic;
+}
