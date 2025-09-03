@@ -1,6 +1,7 @@
 const axios = require("axios");
 const xml2js = require("xml2js");
-const he = require("he"); // decode HTML entities in titles
+const he = require("he");
+const cheerio = require("cheerio"); // 👈 added
 
 const parser = new xml2js.Parser({
   explicitArray: true,
@@ -17,23 +18,17 @@ exports.handler = async function () {
     "daily-times": "https://dailytimesng.com/feed/",
     "sahara-reporters": "https://saharareporters.com/feed/",
     "guardian": "https://guardian.ng/feed/",
-    "punch": "https://www.latestnigeriannews.com/feed/punch/rss.xml",
+    // Punch handled separately
   };
 
   try {
-    // Fetch all feeds in parallel
     const feedPromises = Object.entries(newsOutlets).map(async ([outletName, feedUrl]) => {
       try {
-        const response = await axios.get(feedUrl, { timeout: 8000 }); // timeout helps avoid hangs
+        const response = await axios.get(feedUrl, { timeout: 8000 });
         const xml = response.data;
         const json = await parser.parseStringPromise(xml);
 
         const items = (json.rss?.channel?.[0]?.item || []).slice(0, 10);
-
-        // 🔎 Debug: log Punch feed structure
-        if (outletName === "punch" && items.length > 0) {
-          console.log("DEBUG Punch Feed Item:", JSON.stringify(items[0], null, 2));
-        }
 
         return [
           outletName,
@@ -44,12 +39,35 @@ exports.handler = async function () {
         ];
       } catch (err) {
         console.error(`❌ ${outletName} failed:`, err.message);
-        return [outletName, []]; // empty fallback
+        return [outletName, []];
       }
     });
 
-    // Wait for all feeds at once
-    const resultsArray = await Promise.all(feedPromises);
+    // 👇 Special Punch Scraper
+    const punchPromise = (async () => {
+      try {
+        const response = await axios.get("https://punchng.com/", { timeout: 8000 });
+        const $ = cheerio.load(response.data);
+
+        // Select article links — Punch uses h2.article-title > a
+        const articles = [];
+        $("h2.entry-title a").each((i, el) => {
+          if (i < 10) {
+            articles.push({
+              title: $(el).text().trim(),
+              link: $(el).attr("href"),
+            });
+          }
+        });
+
+        return ["punch", articles];
+      } catch (err) {
+        console.error("❌ Punch scraper failed:", err.message);
+        return ["punch", []];
+      }
+    })();
+
+    const resultsArray = await Promise.all([...feedPromises, punchPromise]);
     const results = Object.fromEntries(resultsArray);
 
     return {
