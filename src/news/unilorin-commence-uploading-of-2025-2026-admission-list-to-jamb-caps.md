@@ -6,7 +6,7 @@ category: Latest
 ---
 Prospective Students are advised to start checking the JAMB Central Admission Processing System Portal. Wondering how to go about it?
 
-Howsto Check Admission on JAMB CAPS:
+How to Check Admission on JAMB CAPS:
 
 1. Visit JAMB CAPS Portal and log in with your JAMB email and password.
 2. Click on “Check Admission Status”.
