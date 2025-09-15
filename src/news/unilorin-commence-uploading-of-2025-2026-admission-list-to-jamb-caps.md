@@ -4,7 +4,23 @@ date: 2025-09-15T11:38:31.867Z
 image: /images/uploads/unilorin-gate.jpg
 category: Latest
 ---
-Prospective Students are advised to start checking the JAMB Central Admission Processing System Portal. Wondering how to go about it?
+Prospective Students are advised to start checking the JAMB Central Admission Processing System Portal. 
+
+T﻿he following departments can proceed to check their JAMB caps:
+
+Computer science 
+
+Mechanical engineering 
+
+Plant biology aspirant 
+
+Biochemistry aspirant, start checking
+
+History and international relations 
+
+Agricultural Science
+
+Wondering how to go about it?
 
 How to Check Admission on JAMB CAPS:
 
@@ -15,4 +31,4 @@ How to Check Admission on JAMB CAPS:
 5. On the CAPS dashboard, click “Admission Status” to see if you have been offered admission.
 6. If admitted, click “Accept” to confirm the offer.\
    \
-   D﻿o you intend to stay abreast news headlines across the country? SocratesNews got you, click the Headlines section in the navigation bar above and get access to top-notch headlines.
+   D﻿o you intend to stay abreast with news headlines across the country? SocratesNews got you, click the Headlines section in the navigation bar above and get access to top-notch headlines.
