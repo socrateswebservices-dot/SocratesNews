@@ -13,6 +13,7 @@ exports.handler = async function () {
   const newsOutlets = {
     "vanguard": "https://www.vanguardngr.com/feed/",
     "business-day": "https://businessday.ng/feed/",
+    "channels": "https://www.channelstv.com/feed/",
     "tribune": "https://tribuneonlineng.com/feed/",
     "daily-trust": "https://dailytrust.com.ng/feed/",
     "daily-times": "https://dailytimesng.com/feed/",
