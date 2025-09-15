@@ -13,4 +13,6 @@ How to Check Admission on JAMB CAPS:
 3. Select your examination year and enter your JAMB registration number.
 4. Click “Access my CAPS”.
 5. On the CAPS dashboard, click “Admission Status” to see if you have been offered admission.
-6. If admitted, click “Accept” to confirm the offer.
+6. If admitted, click “Accept” to confirm the offer.\
+   \
+   D﻿o you intend to stay abreast news headlines across the country? SocratesNews got you, click the Headlines section in the navigation bar above and get access to top-notch headlines.
