@@ -3,56 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Socrates News - Latest Headlines & Breaking News</title>
+  <title>Socrates News - Latest Headlines & Breaking News | SocratesNews</title>
   <meta name="description" content="Socrates News delivers the latest headlines and breaking news. Stay informed with our easy-to-digest news coverage from around the world.">
-  <meta name="keywords" content="socrates news, socratesnews, socrates, latest news, headlines, breaking news, news updates">
+  <meta name="keywords" content="socrates news, socratesnews, socrates, latest news, headlines, breaking news, news updates, daily news">
   
-  <!-- Canonical URL to avoid duplicate content issues -->
-  <link rel="canonical" href="https://www.socratesnews.netlify.app/">
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://socratesnews.netlify.app/">
   
-  <!-- Open Graph tags for social sharing -->
+  <!-- Open Graph tags -->
   <meta property="og:title" content="Socrates News - Latest Headlines & Breaking News">
   <meta property="og:description" content="Stay informed with Socrates News - your source for the latest headlines and breaking news from around the world.">
-  <meta property="og:url" content="https://www.socratesnews.com/">
+  <meta property="og:url" content="https://socratesnews.netlify.app/">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://www.socratesnews.com/images/socrates-news-social.jpg">
+  <meta property="og:image" content="https://socratesnews.netlify.app/images/socrates-news-social.jpg">
   <meta property="og:site_name" content="Socrates News">
   
-  <!-- Twitter Card data -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@SocratesNews">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Socrates News - Latest Headlines & Breaking News">
   <meta name="twitter:description" content="Stay informed with Socrates News - your source for the latest headlines and breaking news.">
-  <meta name="twitter:image" content="https://www.socratesnews.com/images/socrates-news-twitter.jpg">
   
-  <!-- JSON-LD structured data for better search understanding -->
+  <!-- JSON-LD structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "NewsMediaOrganization",
     "name": "Socrates News",
-    "url": "https://www.socratesnews.netlify.app/",
+    "url": "https://socratesnews.netlify.app/",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://www.socratesnews.netlify.app/images/Newsfavicon.png"
+      "url": "https://socratesnews.netlify.app/images/Newsfavicon.png"
     },
     "description": "Latest headlines and breaking news from around the world",
-    "sameAs": [
-      "https://twitter.com/SocratesNews",
-      "https://www.facebook.com/SocratesNews",
-      "https://www.instagram.com/SocratesNews"
-    ]
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://socratesnews.netlify.app/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
   }
   </script>
   
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="icon" href="/images/Newsfavicon.png" type="image/png">
-  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* Custom styles for SEO improvements */
+    body {
+      padding-bottom: 60px; /* Prevent content hiding behind footer */
+    }
+    .content-section {
+      margin-bottom: 30px;
+    }
+    .keyword-highlight {
+      font-weight: bold;
+      color: darkcyan;
+    }
+    .footer {
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      background-color: darkcyan;
+      color: white;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+    .news-category {
+      border-left: 4px solid darkcyan;
+      padding-left: 15px;
+      margin-bottom: 25px;
+    }
+    .social-links a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.2rem;
+    }
+  </style>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
   
-  <!-- Header with optimized H1 and keyword placement -->
+  <!-- Header -->
   <header class="bg-white text-black text-center py-4 shadow">
     <div class="container">
       <h1 class="display-4 mb-1">Socrates News</h1>
@@ -60,10 +89,10 @@
     </div>
   </header>
 
-  <!-- Navigation with improved semantic structure -->
+  <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark shadow-sm" style="background-color: darkcyan;">
     <div class="container">
-      <a class="navbar-brand font-weight-bold">Legit Top News</a>
+      <a class="navbar-brand font-weight-bold" href="/">Socrates News</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -71,6 +100,9 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item font-weight-bold"><a class="nav-link" href="/#latest-news">#Latest News</a></li>
           <li class="nav-item font-weight-bold"><a class="nav-link" href="/#headlines">#Headlines</a></li>
+          <li class="nav-item font-weight-bold"><a class="nav-link" href="/#world-news">World News</a></li>
+          <li class="nav-item font-weight-bold"><a class="nav-link" href="/#technology">Technology</a></li>
+          <li class="nav-item font-weight-bold"><a class="nav-link" href="/#politics">Politics</a></li>
         </ul>
       </div>
     </div>
@@ -78,16 +110,89 @@
 
   <!-- Main Content -->
   <main class="container my-5">
-    {{ content }}
+    <!-- Hero Section with keyword-rich content -->
+    <section class="content-section text-center">
+      <h2>Welcome to <span class="keyword-highlight">Socrates News</span></h2>
+      <p class="lead">Your trusted source for the latest headlines and breaking news from around the world. At <span class="keyword-highlight">Socrates News</span>, we make staying informed simple and straightforward.</p>
+    </section>
+
+    <!-- Featured News Section -->
+    <section id="latest-news" class="content-section">
+      <h2 class="mb-4">Latest News</h2>
+      <div class="news-category">
+        <h3>World News</h3>
+        <p>Stay updated with global events and international affairs with <span class="keyword-highlight">Socrates News</span> comprehensive world coverage.</p>
+      </div>
+      <div class="news-category">
+        <h3>Technology</h3>
+        <p>From AI advancements to the latest gadgets, <span class="keyword-highlight">Socrates News</span> brings you the most important tech stories.</p>
+      </div>
+      <div class="news-category">
+        <h3>Politics</h3>
+        <p>Get non-partisan political reporting and analysis from <span class="keyword-highlight">Socrates News</span> experienced journalists.</p>
+      </div>
+    </section>
+
+    <!-- About Socrates News -->
+    <section id="about" class="content-section bg-light p-4 rounded">
+      <h2>About Socrates News</h2>
+      <p><span class="keyword-highlight">Socrates News</span> is dedicated to providing clear, concise news coverage in the spirit of philosophical inquiry. Our name pays homage to Socrates, who valued questioning and understanding above all.</p>
+      <p>Whether you're searching for <strong>socrates news</strong>, <strong>socratesnews</strong>, or simply <strong>socrates</strong>, our platform delivers relevant, up-to-date information on current events.</p>
+    </section>
+
+    <!-- Popular Search Terms Section -->
+    <section class="content-section">
+      <h3>Popular Topics at Socrates News</h3>
+      <div class="d-flex flex-wrap">
+        <span class="badge badge-secondary m-1 p-2">socrates news</span>
+        <span class="badge badge-secondary m-1 p-2">socratesnews</span>
+        <span class="badge badge-secondary m-1 p-2">socrates</span>
+        <span class="badge badge-secondary m-1 p-2">breaking news</span>
+        <span class="badge badge-secondary m-1 p-2">headlines today</span>
+        <span class="badge badge-secondary m-1 p-2">world news</span>
+        <span class="badge badge-secondary m-1 p-2">technology news</span>
+        <span class="badge badge-secondary m-1 p-2">political news</span>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
-  <footer class="text-center position-fixed" style="bottom: 0; left: 0; width: 100%; background-color: darkcyan; color: white; padding: 15px 0;">
-    <p class="mb-0">&copy; {{ "now" | date: "%Y" }} Socrates News</p>
+  <footer class="footer text-center">
+    <div class="container">
+      <p class="mb-2">&copy; 2023 Socrates News - Your Trusted News Source</p>
+      <div class="social-links mb-2">
+        <a href="#" aria-label="Facebook"><span>FB</span></a>
+        <a href="#" aria-label="Twitter"><span>TW</span></a>
+        <a href="#" aria-label="Instagram"><span>IG</span></a>
+      </div>
+      <p class="mb-0">
+        <a href="/privacy" class="text-light mr-3">Privacy Policy</a>
+        <a href="/terms" class="text-light mr-3">Terms of Service</a>
+        <a href="/contact" class="text-light">Contact Us</a>
+      </p>
+    </div>
   </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Simple Analytics Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Track page view for Socrates News
+      console.log('Socrates News page loaded - Tracking implemented');
+      
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+    });
+  </script>
 </body>
 </html>
