@@ -7,7 +7,7 @@ title: Socrates News
 
 <div class="row news-articles">
   {% for item in collections.news reversed %}
-    <div class="col-12 col-md-6 col-lg-4 d-flex align-items-stretch"> <!-- ✅ Force equal height -->
+    <div class="col-12 col-md-6 col-lg-4 d-flex">
       <div class="card h-100 w-100 d-flex flex-column">
         {% if item.data.image %}
           <img src="{{ item.data.image }}" class="card-img-top" alt="{{ item.data.title }}">
@@ -88,16 +88,14 @@ title: Socrates News
     const spinner = document.getElementById("loading-spinner");
     const title = document.getElementById("headline-title");
 
-    // Show spinner while switching outlets
     spinner.style.display = "block";
     container.innerHTML = "";
 
-    // Update active button style
     document.querySelectorAll(".btn-news").forEach(b => b.classList.remove("active"));
     if (btn) btn.classList.add("active");
 
     setTimeout(() => {
-      spinner.style.display = "none"; // hide spinner after "loading"
+      spinner.style.display = "none";
       
       if (!allHeadlines[outlet] || allHeadlines[outlet].length === 0) {
         container.innerHTML = "<li class='list-group-item text-muted'>No headlines available</li>";
@@ -112,9 +110,8 @@ title: Socrates News
         li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
         container.appendChild(li);
       });
-    }, 400); // small delay for smoother spinner effect
+    }, 400);
   }
 
-  // Fetch on load
   fetchHeadlines();
 </script>
