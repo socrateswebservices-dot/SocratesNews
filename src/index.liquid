@@ -3,59 +3,58 @@ layout: base.liquid
 title: Socrates News
 ---
 
-<h1 id="latest-news" class="mt-4 mb-4" style="font-weight:bold; font-size:28px;">Latest News</h1>
+<h1 id="latest-news" class="section-title">Latest News</h1>
 
-<div class="row news-articles">
+<div class="news-articles">
   {% for item in collections.news reversed %}
-    <div class="news-card col-xl-4 col-lg-4 col-md-4 mb-4">
-      <div class="card h-100">
+    <div class="news-card">
+      <div class="card">
         {% if item.data.image %}
-          <img src="{{ item.data.image }}" class="card-img-top" alt="{{ item.data.title }}">
+          <img src="{{ item.data.image }}" class="card-img" alt="{{ item.data.title }}">
         {% endif %}
-        <div class="card-body d-flex flex-column">
+        <div class="card-body">
           {% if item.data.category %}
-            <span class="badge badge-info mb-2">{{ item.data.category }}</span>
+            <span class="category-tag">{{ item.data.category }}</span>
           {% endif %}
-          <h5 class="card-title mb-3" style="font-size: 1.15rem; font-weight: 600; min-height: 3rem;">{{ item.data.title }}</h5>
-          <p class="card-text flex-grow-1 mb-3" style="font-size: 1rem; line-height: 1.5;">{{ item.templateContent | truncate: 25 }}</p>
-          <a href="{{ item.url }}" class="btn btn-primary mt-auto" style="background-color: darkcyan; padding: 8px 16px; font-weight: 300;">Read More</a>
+          <h5 class="card-title">{{ item.data.title }}</h5>
+          <p class="card-text">{{ item.templateContent | truncate: 25 }}</p>
+          <a href="{{ item.url }}" class="btn-read">Read More</a>
         </div>
       </div>
     </div>
   {% endfor %}
 </div>
 
-<hr class="mt-4 mb-4">
+<hr class="divider">
 
-<h2 id="headlines" class="mt-4 mb-4" style="font-weight:bold; font-size:28px;">Headlines</h2>
+<h2 id="headlines" class="section-title">Headlines</h2>
 
 <!-- News outlet buttons -->
-<div class="text-center mb-4">
-  <button class="btn btn-news m-1 active" onclick="showHeadlines('punch', this)">Punch</button>
-  <button class="btn btn-news m-1" onclick="showHeadlines('channels', this)">Channels TV</button>
-  <button class="btn btn-news m-1" onclick="showHeadlines('vanguard', this)">Vanguard</button>
-  <button class="btn btn-news m-1" onclick="showHeadlines('business-day', this)">Business Day</button>
-  <button class="btn btn-news m-1" onclick="showHeadlines('tribune', this)">Tribune</button>
-  <button class="btn btn-news m-1" onclick="showHeadlines('daily-trust', this)">Daily Trust</button>
-  <button class="btn btn-news m-1" onclick="showHeadlines('daily-times', this)">Daily Times</button>
-  <button class="btn btn-news m-1" onclick="showHeadlines('sahara-reporters', this)">Sahara Reporters</button>
+<div class="outlet-buttons">
+  <button class="btn-news active" onclick="showHeadlines('punch', this)">Punch</button>
+  <button class="btn-news" onclick="showHeadlines('channels', this)">Channels TV</button>
+  <button class="btn-news" onclick="showHeadlines('vanguard', this)">Vanguard</button>
+  <button class="btn-news" onclick="showHeadlines('business-day', this)">Business Day</button>
+  <button class="btn-news" onclick="showHeadlines('tribune', this)">Tribune</button>
+  <button class="btn-news" onclick="showHeadlines('daily-trust', this)">Daily Trust</button>
+  <button class="btn-news" onclick="showHeadlines('daily-times', this)">Daily Times</button>
+  <button class="btn-news" onclick="showHeadlines('sahara-reporters', this)">Sahara Reporters</button>
 </div>
 
 <!-- Headlines container -->
-<div id="headlines-container" class="card shadow-sm">
-  <div class="card-header bg-dark text-white">
-    <h5 id="headline-title" class="mb-0" style="font-size: 1.3rem;">Punch News</h5>
+<div id="headlines-container" class="headlines-card">
+  <div class="headlines-header">
+    <h5 id="headline-title">Punch News</h5>
   </div>
-  <div class="card-body">
+  <div class="headlines-body">
     <!-- Spinner -->
-    <div id="loading-spinner" class="text-center my-3" style="display: none;">
-      <div class="spinner-border text-secondary" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
+    <div id="loading-spinner" class="spinner" style="display: none;">
+      <div class="spinner-circle"></div>
+      <p>Loading...</p>
     </div>
 
     <!-- Headlines list -->
-    <ul class="list-group list-group-flush" id="headlines-list"></ul>
+    <ul id="headlines-list" class="headlines-list"></ul>
   </div>
 </div>
 
@@ -66,20 +65,20 @@ title: Socrates News
     const container = document.getElementById("headlines-list");
     const spinner = document.getElementById("loading-spinner");
 
-    spinner.style.display = "block";  // show spinner
+    spinner.style.display = "block";
     container.innerHTML = "";
 
     try {
       const res = await fetch("/.netlify/functions/get-headlines");
       allHeadlines = await res.json();
 
-      spinner.style.display = "none"; // hide spinner
+      spinner.style.display = "none";
       showHeadlines("punch");
     } catch (err) {
       console.error("Error loading headlines:", err);
       spinner.style.display = "none";
       container.innerHTML =
-        "<li class='list-group-item text-danger'>❌ Failed to load headlines.</li>";
+        "<li class='headline-item error'>❌ Failed to load headlines.</li>";
     }
   }
 
@@ -98,7 +97,7 @@ title: Socrates News
       spinner.style.display = "none";
       
       if (!allHeadlines[outlet] || allHeadlines[outlet].length === 0) {
-        container.innerHTML = "<li class='list-group-item text-muted'>No headlines available</li>";
+        container.innerHTML = "<li class='headline-item empty'>No headlines available</li>";
         title.textContent = outlet.replace("-", " ").toUpperCase();
         return;
       }
@@ -106,8 +105,8 @@ title: Socrates News
       title.textContent = outlet.replace("-", " ").replace(/\b\w/g, c => c.toUpperCase());
       allHeadlines[outlet].forEach(item => {
         const li = document.createElement("li");
-        li.className = "list-group-item";
-        li.innerHTML = `<a href="${item.link}" target="_blank" style="font-size: 1.05rem;">${item.title}</a>`;
+        li.className = "headline-item";
+        li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
         container.appendChild(li);
       });
     }, 400);
