@@ -52,11 +52,10 @@ body {
     color: #555;
 }
 
-/* ✅ FORCE GRID LAYOUT */
-/* ✅ Wrap the news section in a centered container */
+/* News articles grid */
 .news-articles {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
@@ -64,7 +63,6 @@ body {
 }
 
 .news-card {
-    flex: 0 0 calc(33.333% - 24px);
     display: flex;
 }
 
@@ -77,6 +75,7 @@ body {
     background: #fff;
     box-shadow: 0 3px 8px rgba(0,0,0,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
 }
 
 .news-card .card:hover {
@@ -84,11 +83,11 @@ body {
     box-shadow: 0 6px 14px rgba(0,0,0,0.12);
 }
 
+/* Default vertical layout for mobile */
 .news-card img {
     height: 220px;
     object-fit: cover;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    width: 100%;
 }
 
 .news-card .card-body {
@@ -112,6 +111,37 @@ body {
 
 .news-card .btn {
     margin-top: auto;
+}
+
+/* Horizontal layout for desktop */
+@media (min-width: 992px) {
+    .news-card .card {
+        flex-direction: row;
+        height: 200px; /* Fixed height for horizontal cards */
+    }
+    
+    .news-card img {
+        width: 40%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .news-card .card-body {
+        width: 60%;
+        padding: 15px;
+    }
+    
+    .news-card .card-title {
+        font-size: 1.1rem;
+    }
+    
+    .news-card .card-text {
+        font-size: 0.95rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
 }
 
 /* 🔹 News outlet buttons */
@@ -149,28 +179,16 @@ body {
 }
 
 .news-articles .card-img-top {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
   object-position: center bottom;
-  border-radius: 6px 6px 0 0;
 }
 
 @media (max-width: 992px) {
-  .news-card {
-    flex: 0 0 calc(50% - 24px);
-  }
-  
   .news-articles .card-img-top {
     height: 180px;
   }
 }
 
 @media (max-width: 576px) {
-  .news-card {
-    flex: 0 0 100%;
-  }
-  
   .news-articles .card-img-top {
     height: 140px;
     object-position: 50% 30%;
