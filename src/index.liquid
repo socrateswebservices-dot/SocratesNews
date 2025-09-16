@@ -7,7 +7,7 @@ title: Socrates News
 
 <div class="row news-articles">
   {% for item in collections.news reversed %}
-    <div class="news-card col-xl-3 col-lg-3 col-md-4 mb-4">
+    <div class="news-card col-xl-4 col-lg-4 col-md-4 mb-4">
       <div class="card h-100">
         {% if item.data.image %}
           <img src="{{ item.data.image }}" class="card-img-top" alt="{{ item.data.title }}">
@@ -17,7 +17,7 @@ title: Socrates News
             <span class="badge badge-info mb-2">{{ item.data.category }}</span>
           {% endif %}
           <h5 class="card-title mb-3" style="font-size: 1.15rem; font-weight: 600; min-height: 3rem;">{{ item.data.title }}</h5>
-          <p class="card-text flex-grow-1 mb-3" style="font-size: 1rem; line-height: 1.5;">{{ item.templateContent | truncate: 35 }}</p>
+          <p class="card-text flex-grow-1 mb-3" style="font-size: 1rem; line-height: 1.5;">{{ item.templateContent | truncate: 25 }}</p>
           <a href="{{ item.url }}" class="btn btn-primary mt-auto" style="background-color: darkcyan; padding: 8px 16px; font-weight: 300;">Read More</a>
         </div>
       </div>
