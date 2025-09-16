@@ -23,19 +23,17 @@ body {
 }
 
 /* 🔹 News Articles Grid */
+/* News articles grid - always 3 per row on desktop */
 .news-articles {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 10px;
-  justify-content: flex-start;
-  align-items: stretch;
 }
 
 .news-card {
-  flex: 0 0 calc(33.333% - 30px);
   display: flex;
 }
 
@@ -43,7 +41,6 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 100%;
   border-radius: 12px;
   background: #fff;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -56,10 +53,11 @@ body {
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
+/* Force image scaling */
 .news-card img {
-  height: 240px;
-  object-fit: cover;
   width: 100%;
+  height: 220px;
+  object-fit: cover;
 }
 
 .news-card .card-body {
