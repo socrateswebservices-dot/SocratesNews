@@ -5,7 +5,6 @@ body {
     line-height: 1.6;
 }
 
-/* 🔹 Header */
 .header {
     text-align: center;
     padding: 20px;
@@ -18,7 +17,6 @@ body {
     height: auto;
 }
 
-/* 🔹 Navigation */
 .nav {
     background: #eee;
     padding: 10px;
@@ -36,7 +34,6 @@ body {
     color: darkcyan;
 }
 
-/* 🔹 Top story */
 .top-story img {
     width: 100%;
     height: 350px;
@@ -55,32 +52,20 @@ body {
     color: #555;
 }
 
-/* 🔹 News articles grid */
+/* News articles grid - 3 columns on all medium+ screens */
 .news-articles {
-    display: grid;
-    grid-template-columns: 1fr; /* mobile default */
+    display: flex;
+    flex-wrap: wrap;
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 10px;
+    justify-content: flex-start;
+    align-items: stretch;
 }
 
-/* Tablet - 2 per row */
-@media (min-width: 768px) and (max-width: 1199px) {
-    .news-articles {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* Desktop - 3 per row */
-@media (min-width: 1200px) {
-    .news-articles {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* 🔹 News card */
 .news-card {
+    flex: 0 0 calc(33.333% - 30px);
     display: flex;
 }
 
@@ -101,15 +86,13 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* Card image */
+/* Card image - fixed height */
 .news-card img {
-    width: 100%;
     height: 240px;
     object-fit: cover;
-    object-position: center center;
+    width: 100%;
 }
 
-/* Card body */
 .news-card .card-body {
     display: flex;
     flex-direction: column;
@@ -122,7 +105,7 @@ body {
     font-weight: 600;
     margin-bottom: 15px;
     line-height: 1.3;
-    min-height: 3rem;
+    min-height: 3rem; /* Ensures consistent height for titles */
 }
 
 .news-card .card-text {
@@ -131,6 +114,7 @@ body {
     color: #444;
     line-height: 1.6;
     margin-bottom: 20px;
+    /* Limit to 4 lines max with ellipsis */
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
@@ -143,6 +127,70 @@ body {
     padding: 10px 20px;
     font-weight: 500;
     border-radius: 6px;
+}
+
+/* Tablet layout - 3 columns */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .news-card {
+        flex: 0 0 calc(33.333% - 30px);
+    }
+    
+    .news-card .card {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .news-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    
+    .news-card .card-body {
+        width: 100%;
+        padding: 15px;
+    }
+    
+    .news-card .card-title {
+        font-size: 1.1rem;
+        min-height: 2.8rem;
+    }
+    
+    .news-card .card-text {
+        -webkit-line-clamp: 3;
+    }
+}
+
+/* Desktop layout - 3 columns */
+@media (min-width: 1200px) {
+    .news-card {
+        flex: 0 0 calc(33.333% - 30px);
+    }
+    
+    .news-card .card {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .news-card img {
+        width: 100%;
+        height: 240px;
+    }
+    
+    .news-card .card-body {
+        width: 100%;
+    }
+    
+    .news-card .card-text {
+        -webkit-line-clamp: 4;
+    }
+}
+
+/* Large desktop layout - 3 columns */
+@media (min-width: 1400px) {
+    .news-card {
+        flex: 0 0 calc(33.333% - 30px);
+    }
 }
 
 /* 🔹 News outlet buttons */
@@ -202,26 +250,40 @@ body {
     color: darkcyan;
 }
 
-/* Navbar override */
 .navbar-dark .nav-link {
   color: #fff !important;
   opacity: 1 !important;
 }
 
-/* 🔹 Small screens */
+.news-articles .card-img-top {
+  object-position: center center;
+}
+
+/* Mobile layout - 1 column */
 @media (max-width: 767px) {
-    .news-card img {
+    .news-card {
+        flex: 0 0 100%;
+    }
+    
+    .news-articles .card-img-top {
         height: 200px;
     }
+    
+    .news-articles {
+        gap: 20px;
+    }
+    
     .news-card .card-text {
         -webkit-line-clamp: 3;
     }
 }
 
 @media (max-width: 576px) {
-    .news-card img {
+    .news-articles .card-img-top {
         height: 180px;
+        object-position: center center;
     }
+    
     .btn-news {
         padding: 8px 16px;
         font-size: 0.9rem;
