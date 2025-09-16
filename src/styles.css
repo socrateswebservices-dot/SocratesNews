@@ -52,7 +52,7 @@ body {
     color: #555;
 }
 
-/* News articles grid */
+/* News articles grid - 3 columns on desktop */
 .news-articles {
     display: flex;
     flex-wrap: wrap;
@@ -60,7 +60,8 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 10px;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: stretch;
 }
 
 .news-card {
@@ -128,7 +129,7 @@ body {
     border-radius: 6px;
 }
 
-/* Horizontal layout for tablets */
+/* Tablet layout - 2 columns */
 @media (min-width: 768px) and (max-width: 1199px) {
     .news-card {
         flex: 0 0 calc(50% - 30px);
@@ -160,7 +161,7 @@ body {
     }
 }
 
-/* Vertical layout for desktop (3 columns) */
+/* Desktop layout - 3 columns */
 @media (min-width: 1200px) {
     .news-card {
         flex: 0 0 calc(33.333% - 30px);
@@ -182,6 +183,13 @@ body {
     
     .news-card .card-text {
         -webkit-line-clamp: 4;
+    }
+}
+
+/* Large desktop layout - 3 columns */
+@media (min-width: 1400px) {
+    .news-card {
+        flex: 0 0 calc(33.333% - 30px);
     }
 }
 
@@ -251,6 +259,7 @@ body {
   object-position: center center;
 }
 
+/* Mobile layout - 1 column */
 @media (max-width: 767px) {
     .news-card {
         flex: 0 0 100%;
@@ -280,9 +289,4 @@ body {
         font-size: 0.9rem;
         margin: 4px;
     }
-}
-
-/* Equal height fix */
-.news-articles {
-    align-items: stretch;
 }
