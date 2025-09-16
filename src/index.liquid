@@ -8,9 +8,9 @@ title: Socrates News
 <div class="row news-articles">
   {% for item in collections.news reversed %}
     <div class="news-card col-lg-4 col-md-6 mb-4">
-      <div class="card h-100 d-flex flex-column flex-md-row flex-lg-column">
+      <div class="card h-100">
         {% if item.data.image %}
-          <img src="{{ item.data.image }}" class="card-img-top card-img-md-side" alt="{{ item.data.title }}">
+          <img src="{{ item.data.image }}" class="card-img-top" alt="{{ item.data.title }}">
         {% endif %}
         <div class="card-body d-flex flex-column">
           {% if item.data.category %}
