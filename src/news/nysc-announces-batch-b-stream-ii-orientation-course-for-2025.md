@@ -6,8 +6,8 @@ category: Latest
 ---
 The director-General has approved the 2025 Batch 'B' stream ll Orientation Course to hold in all the thirty -six (36) States and the FCT as follows:
 
-Commencement: Wednesday 24th September, 2025
-Registration: Wednesday,24th to Friday, 26th September, 2025
-Cut - Off date: Midnight Friday,26th September,2025
-Swearing -in: Friday,26th September,2025
+Commencement: Wednesday, 24th September, 2025
+Registration: Wednesday, 24th to Friday, 26th September, 2025
+Cut-off date: Midnight Friday, 26th September,2025
+Swearing-in: Friday,26th September, 2025
 Closing: Tuesday, 14th October, 2025
