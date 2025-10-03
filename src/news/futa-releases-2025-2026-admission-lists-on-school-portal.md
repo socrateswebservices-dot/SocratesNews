@@ -1,5 +1,5 @@
 ---
-title: "**FUTA Releases 2025/2026 Admission Lists on School Portal**"
+title: FUTA Releases 2025/2026 Admission Lists on School Portal
 date: 2025-10-03T18:07:37.832Z
 image: /images/uploads/futa.jpg
 category: Latest
