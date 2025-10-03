@@ -10,4 +10,9 @@ Currently, many candidates are seeing *“Admission in Progress (AIP)”* on the
 
 Once a candidate’s status changes to *“Congratulations, you’ve been admitted,”* they are required to promptly accept the admission offer.
 
-Congratulations in advance to all admitted candidates!
+Congratulations in advance to all admitted candidates!\
+\
+*C﻿ONQUER FROM SOCRATESNEWS REPORTS*
+
+
+*<﻿>*
