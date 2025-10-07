@@ -112,7 +112,7 @@ body {
 
 @media (max-width: 576px) {
   .news-card img {
-    height: 180px;
+    height: 80px;
   }
 }
 
