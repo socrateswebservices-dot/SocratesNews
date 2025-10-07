@@ -106,7 +106,7 @@ body {
 /* 🔹 Responsive */
 @media (max-width: 767px) {
   .news-card {
-    flex: 0 0 70%;
+    flex: 0 0 40%;
   }
 }
 
