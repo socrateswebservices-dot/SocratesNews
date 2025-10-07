@@ -55,7 +55,7 @@ body {
 
 /* Force image scaling */
 .news-card img {
-  width: 40%;
+  width: 100%;
   height: 220px;
   object-fit: cover;
 }
