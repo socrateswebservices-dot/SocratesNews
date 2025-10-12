@@ -33,3 +33,5 @@ ASUU's decision to strike stems from the government's persistent failure to meet
 * An end to the alleged victimisation of lecturers at Lagos State University (LASU), Prince Abubakar Audu University, and the Federal University of Technology, Owerri (FUTO).
 
 The impending strike casts a shadow over the start of the new academic week, leaving students and parents anxiously awaiting a resolution.
+
+C﻿ONQUER FROM SOCRATESNEWS REPORTS
