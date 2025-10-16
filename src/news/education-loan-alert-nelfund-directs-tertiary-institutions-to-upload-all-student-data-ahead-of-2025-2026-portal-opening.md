@@ -16,3 +16,5 @@ Institutions are specifically required to ensure that each student's data is acc
 The Fund stressed the vital role tertiary institutions play in the success of the scheme, urging them to commence and complete the upload process promptly. Institutions are advised to designate appropriate officers to oversee this critical exercise in line with provided technical guidelines.
 
 NELFUND stated that this high level of cooperation is key to "ensuring that no eligible student is left behind" as the agency prepares to launch its application process for the new academic year, thereby expanding access to higher education for all eligible Nigerian students.
+
+C﻿ONQUER FROM SOCRATESNEWS REPORTS
