@@ -11,7 +11,7 @@ layout: base.liquid
 
   {% if image %}
     <div class="article-image-container">
-      <img src="{{ image }}" alt="{{ title }}" class="article-image">
+      <img src="{{ image }}" alt="{{ title }}" class="article-image" loading="lazy">
     </div>
   {% endif %}
 
@@ -56,19 +56,33 @@ layout: base.liquid
   font-weight: 500;
 }
 
-/* Article Image - Responsive */
+/* Article Image - Responsive with aspect ratio protection */
 .article-image-container {
   text-align: center;
   margin: 30px 0;
+  overflow: hidden; /* Prevents any overflow */
 }
 
 .article-image {
   max-width: 100%;
   height: auto;
+  max-height: 600px; /* Prevents images from being too tall */
+  width: auto; /* Ensures width follows aspect ratio */
+  object-fit: contain; /* Ensures entire image fits without cropping */
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   display: block;
   margin: 0 auto;
+}
+
+/* Ensure images within article content also maintain aspect ratio */
+.article-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .article-content {
@@ -115,6 +129,10 @@ layout: base.liquid
     margin: 20px 0;
   }
   
+  .article-image {
+    max-height: 400px; /* Reduce max height on tablets */
+  }
+  
   .article-content {
     font-size: 1rem;
     line-height: 1.7;
@@ -135,6 +153,10 @@ layout: base.liquid
   .article-meta {
     font-size: 0.95rem;
     margin-bottom: 20px;
+  }
+  
+  .article-image {
+    max-height: 300px; /* Further reduce max height on mobile */
   }
   
   .article-content {
@@ -164,6 +186,10 @@ layout: base.liquid
   
   .article-meta {
     font-size: 0.9rem;
+  }
+  
+  .article-image {
+    max-height: 250px; /* Smallest max height for very small screens */
   }
 }
 </style>
