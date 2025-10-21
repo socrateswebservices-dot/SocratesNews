@@ -1,24 +1,36 @@
 ---
-title: "Reclaiming the Future: UNILAG Arts Faculty Taps Dr. LaBode Obanor for
-  60th Anniversary Keynote"
-date: 2025-10-21T06:58:56.299Z
-image: /images/uploads/unilag.png
+title: "BREAKING: NELFUND Announces Official Opening Date for 2025/2026 Student
+  Loan Portal"
+date: 2025-10-21T07:03:04.301Z
+image: /images/uploads/nelfund.png
 category: Latest
 ---
-The Faculty of Arts at the University of Lagos (UNILAG) has announced that Dr. LaBode Obanor, President of the League for Social Justice (LSJ), will deliver the keynote address for its 60th Anniversary public lecture, scheduled for Thursday, October 23, 2025.
+The Nigerian Education Loan Fund (NELFUND) has officially announced the opening of its student loan application portal for the 2025/2026 academic session, with applications scheduled to run from Thursday, October 23, 2025, through Saturday, January 31, 2026.
 
-The formal lecture, a central event in the Faculty’s diamond jubilee celebration, will take place at the Faculty of Arts Conference Room, University of Lagos, Akoka.
+The announcement, contained in a statement signed by Mrs. Oseyemi Oluwatuyi, Director, Strategic Communications for NELFUND, comes as a vital update to students eagerly awaiting financial support for the new session.
 
-The chosen lecture topic, “From Knowledge to Justice: Reclaiming the Humanities in Africa’s Tech-Driven Future,” aims to explore the critical role of humanistic studies in navigating Africa’s complex developmental challenges amid rapid technological change.
+### Key Dates and Eligibility
 
-According to a statement by the Chairman of the Organising Planning Committee, Hon. Francis Shonubi, the keynote is expected to be a major highlight of the week-long celebration, which is themed “Humanities as the Tech Solution to Global Crisis in 21st Century Africa.”
+| Item                   | Details / Action Required                                                          |
+| ---------------------- | ---------------------------------------------------------------------------------- |
+| Portal Opening Date    | Thursday, October 23, 2025                                                         |
+| Portal Closing Date    | Saturday, January 31, 2026                                                         |
+| Eligible Students      | Returning and newly admitted students of accredited tertiary institutions.         |
+| Student Identification | Fresh students may apply using their Admission Number or JAMB Registration Number. |
 
-Dr. Obanor, a well-regarded commentator and advocate, is expected to focus on how principles of justice, civic ethics, and youth empowerment must guide the continent's digital transformation to safeguard human dignity and democratic accountability.
+NELFUND stressed that the successful rollout depends heavily on the continued cooperation of tertiary institutions nationwide. Institutions are reminded that they must update and upload the verified records of both returning and newly admitted students on the NELFUND Student Verification Portal.
 
-Dr. Obanor leads the League for Social Justice (LSJ), a civic movement dedicated to advancing the rule of law, education equity, and participatory democracy. His work centers on policy reform, advocacy, and public education aimed at empowering young people and restoring public trust in institutions.
+This pre-application step is mandatory, as the Fund reiterated a crucial point: only students whose details have been duly uploaded and verified by their institutions will be eligible to apply for and benefit from the scheme.
 
-Commenting ahead of the event, Dr. Obanor stated: “Education is not merely about information; it is about transformation. The humanities remind us that progress without justice is regression.”
+NELFUND also addressed potential issues that could affect students:
 
-The sixtieth anniversary celebration is set to showcase the accomplishments of the Faculty’s distinguished scholars and alumni while providing a platform to reflect on six decades of the Faculty's contribution to national development and its vision for producing the next generation of African thinkers and innovators.
+* Institutional Flexibility: Institutions are "encouraged to show understanding" in enforcing registration and fee payment deadlines for students awaiting loan disbursement.
+* Special Notice: Institutions that have not yet commenced their 2025/2026 academic session should formally notify NELFUND to schedule flexibility for their students.
+
+Mrs. Oluwatuyi appealed to all institutions to consider temporary registration measures for students whose loan applications are being processed, ensuring that no student loses access to education due to financial constraints.
+
+For further inquiries, students and institutions are directed to reach NELFUND through their official channels listed on the official website.
+
+![](/images/uploads/nelfund-new.jpg)
 
 C﻿ONQUER FROM SOCRATESNEWS REPORTS
