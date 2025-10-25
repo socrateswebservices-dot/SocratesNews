@@ -8,4 +8,6 @@ The University of Ilorin (UNILORIN) has confirmed that lectures for the 2025/20
 
 Professor Moji T. Bakare-Odunola, Deputy Vice-Chancellor (Academic), announced that the Continuous Assessment (CBT and Written) scheduled for Monday, November 24th, to Friday, November 29th, 2025, remains unchanged. Lectures for the Harmattan Semester are slated to end on January 9, 2026.
 
+![](/images/uploads/whatsapp-image-2025-10-25-at-14.35.55_9fbbd62e.jpg)
+
 C﻿ONQUER FROM SOCRATESNEWS REPORTS
