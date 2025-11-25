@@ -4,7 +4,7 @@ date: 2025-11-25T12:10:20.302Z
 image: /images/uploads/unilorin-gate.jpg
 category: Latest
 ---
-
+University of Ilorin reales provisional harmattan semester CA timetable.
 
 ![](/images/uploads/test-timetable1.png)
 
